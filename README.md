@@ -13,16 +13,16 @@ this section should run you through the steps needed to make your own URDF file 
 ### 2. Using the add-on pack
 1. download the correct version and install the add-on pack by putting the extracted folder inside your solidworks. once done there should be an `export to URDF` option in the `tools` menu bar.
 2. start `export to URDF`
-3. in the bottom left, right click and build out a tree of the joints as demonstrated ![URDF_Exporter](../../../media/00_ROS/04_URDF/Solidworks_Exporter.png)
+3. in the bottom left, right click and build out a tree of the joints as demonstrated ![URDF_Exporter](/media/Solidworks_Exporter.png)
 4. for each joint, you need to give a `name`, a `joint name`, `joint type`, and select the body for each joint. to select a subassembly its best to select it via the design tree, rather than selecting the components individually.
 5. Leave `Reference Coordinate System` `Reference axis` to automatically generate.
 6. once this is done click preview and export to automatically generate all the reference angles and coordinate systems
-7. A secondary windows will open up. just close this windows for now. ![Close this window](../../../media/00_ROS/04_URDF/Assembly_Exporter.png)
+7. A secondary windows will open up. just close this windows for now. ![Close this window](/media/Assembly_Exporter.png)
 ---
 ### 3. Fixing the frames / axes
 1. you should see x frames and <= x axes added to the Design tree, with names like `Origin_<name of joint>` and `Axis_<name of joint>`. the position of these are important. first add axes via reference geometry for each missing one, **however the model will not rotate around this axes, instead it will rotate around the Origin of the model in the direction of the axis** by default the Coordinate frames for each model are placed at the origin of the model and thus the intersection of all three main construction planes. if for instance these planes do not coincide with the axis of rotation of the model. then add a cooridnate frame at a point in which it does.
 
-![Overridden Origin Point](../../../media/00_ROS/04_URDF/Overridden%20Origin.png)
+![Overridden Origin Point](/media/Overridden%20Origin.png)
 
 for example in this case, the URDF exporter would put the components origin point at the red dot. this however doesn't line up with the axis of rotation I want, therefore I create a new coordinate frame in which it does.
 
